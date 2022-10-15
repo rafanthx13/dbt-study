@@ -17,3 +17,245 @@
 [0m04:07:23.538032 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff6a52614f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff6a52611f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7ff689c429a0>]}
 [0m04:07:23.540276 [debug] [MainThread]: Flushing usage events
 [0m04:07:24.169905 [debug] [MainThread]: Connection 'debug' was properly closed.
+
+
+============================== 2022-10-15 01:42:07.159689 | 34823990-3655-474e-8e81-a72e35bca668 ==============================
+[0m01:42:07.159724 [info ] [MainThread]: Running with dbt=1.2.2
+[0m01:42:07.176604 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/rhavel/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'which': 'run', 'rpc_method': 'run', 'indirect_selection': 'eager'}
+[0m01:42:07.176996 [debug] [MainThread]: Tracking: tracking
+[0m01:42:07.177559 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282bda550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282bda5e0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282bda4c0>]}
+[0m01:42:07.210154 [info ] [MainThread]: Partial parse save file not found. Starting full parse.
+[0m01:42:07.210854 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282bc8ee0>]}
+[0m01:42:07.338195 [debug] [MainThread]: Parsing macros/catalog.sql
+[0m01:42:07.342770 [debug] [MainThread]: Parsing macros/adapters.sql
+[0m01:42:07.450046 [debug] [MainThread]: Parsing macros/materializations/table.sql
+[0m01:42:07.458431 [debug] [MainThread]: Parsing macros/materializations/merge.sql
+[0m01:42:07.466678 [debug] [MainThread]: Parsing macros/materializations/seed.sql
+[0m01:42:07.478171 [debug] [MainThread]: Parsing macros/materializations/snapshot.sql
+[0m01:42:07.480214 [debug] [MainThread]: Parsing macros/materializations/view.sql
+[0m01:42:07.483135 [debug] [MainThread]: Parsing macros/materializations/incremental.sql
+[0m01:42:07.503670 [debug] [MainThread]: Parsing macros/utils/right.sql
+[0m01:42:07.505098 [debug] [MainThread]: Parsing macros/utils/safe_cast.sql
+[0m01:42:07.506229 [debug] [MainThread]: Parsing macros/utils/escape_single_quotes.sql
+[0m01:42:07.507423 [debug] [MainThread]: Parsing macros/utils/bool_or.sql
+[0m01:42:07.508383 [debug] [MainThread]: Parsing macros/generic_test_sql/not_null.sql
+[0m01:42:07.510152 [debug] [MainThread]: Parsing macros/generic_test_sql/accepted_values.sql
+[0m01:42:07.513159 [debug] [MainThread]: Parsing macros/generic_test_sql/unique.sql
+[0m01:42:07.514645 [debug] [MainThread]: Parsing macros/generic_test_sql/relationships.sql
+[0m01:42:07.516503 [debug] [MainThread]: Parsing macros/materializations/configs.sql
+[0m01:42:07.521497 [debug] [MainThread]: Parsing macros/materializations/hooks.sql
+[0m01:42:07.529771 [debug] [MainThread]: Parsing macros/materializations/snapshots/helpers.sql
+[0m01:42:07.556931 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot_merge.sql
+[0m01:42:07.560456 [debug] [MainThread]: Parsing macros/materializations/snapshots/strategies.sql
+[0m01:42:07.597214 [debug] [MainThread]: Parsing macros/materializations/snapshots/snapshot.sql
+[0m01:42:07.621933 [debug] [MainThread]: Parsing macros/materializations/tests/where_subquery.sql
+[0m01:42:07.625851 [debug] [MainThread]: Parsing macros/materializations/tests/helpers.sql
+[0m01:42:07.629680 [debug] [MainThread]: Parsing macros/materializations/tests/test.sql
+[0m01:42:07.639533 [debug] [MainThread]: Parsing macros/materializations/seeds/helpers.sql
+[0m01:42:07.677122 [debug] [MainThread]: Parsing macros/materializations/seeds/seed.sql
+[0m01:42:07.692039 [debug] [MainThread]: Parsing macros/materializations/models/view/create_or_replace_view.sql
+[0m01:42:07.699320 [debug] [MainThread]: Parsing macros/materializations/models/view/helpers.sql
+[0m01:42:07.702147 [debug] [MainThread]: Parsing macros/materializations/models/view/create_view_as.sql
+[0m01:42:07.707095 [debug] [MainThread]: Parsing macros/materializations/models/view/view.sql
+[0m01:42:07.718753 [debug] [MainThread]: Parsing macros/materializations/models/incremental/on_schema_change.sql
+[0m01:42:07.750690 [debug] [MainThread]: Parsing macros/materializations/models/incremental/merge.sql
+[0m01:42:07.784678 [debug] [MainThread]: Parsing macros/materializations/models/incremental/is_incremental.sql
+[0m01:42:07.788127 [debug] [MainThread]: Parsing macros/materializations/models/incremental/column_helpers.sql
+[0m01:42:07.799529 [debug] [MainThread]: Parsing macros/materializations/models/incremental/incremental.sql
+[0m01:42:07.820148 [debug] [MainThread]: Parsing macros/materializations/models/table/table.sql
+[0m01:42:07.832008 [debug] [MainThread]: Parsing macros/materializations/models/table/create_table_as.sql
+[0m01:42:07.838236 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_database.sql
+[0m01:42:07.841621 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_schema.sql
+[0m01:42:07.846917 [debug] [MainThread]: Parsing macros/get_custom_name/get_custom_alias.sql
+[0m01:42:07.850082 [debug] [MainThread]: Parsing macros/utils/cast_bool_to_text.sql
+[0m01:42:07.852366 [debug] [MainThread]: Parsing macros/utils/length.sql
+[0m01:42:07.854404 [debug] [MainThread]: Parsing macros/utils/any_value.sql
+[0m01:42:07.856398 [debug] [MainThread]: Parsing macros/utils/hash.sql
+[0m01:42:07.858945 [debug] [MainThread]: Parsing macros/utils/date_trunc.sql
+[0m01:42:07.861348 [debug] [MainThread]: Parsing macros/utils/except.sql
+[0m01:42:07.863139 [debug] [MainThread]: Parsing macros/utils/last_day.sql
+[0m01:42:07.867084 [debug] [MainThread]: Parsing macros/utils/datediff.sql
+[0m01:42:07.869829 [debug] [MainThread]: Parsing macros/utils/split_part.sql
+[0m01:42:07.874282 [debug] [MainThread]: Parsing macros/utils/right.sql
+[0m01:42:07.876690 [debug] [MainThread]: Parsing macros/utils/listagg.sql
+[0m01:42:07.881696 [debug] [MainThread]: Parsing macros/utils/safe_cast.sql
+[0m01:42:07.884081 [debug] [MainThread]: Parsing macros/utils/intersect.sql
+[0m01:42:07.886074 [debug] [MainThread]: Parsing macros/utils/data_types.sql
+[0m01:42:07.898618 [debug] [MainThread]: Parsing macros/utils/escape_single_quotes.sql
+[0m01:42:07.900911 [debug] [MainThread]: Parsing macros/utils/concat.sql
+[0m01:42:07.903011 [debug] [MainThread]: Parsing macros/utils/literal.sql
+[0m01:42:07.905012 [debug] [MainThread]: Parsing macros/utils/position.sql
+[0m01:42:07.907548 [debug] [MainThread]: Parsing macros/utils/dateadd.sql
+[0m01:42:07.910265 [debug] [MainThread]: Parsing macros/utils/replace.sql
+[0m01:42:07.912958 [debug] [MainThread]: Parsing macros/utils/bool_or.sql
+[0m01:42:07.914976 [debug] [MainThread]: Parsing macros/adapters/indexes.sql
+[0m01:42:07.920805 [debug] [MainThread]: Parsing macros/adapters/columns.sql
+[0m01:42:07.941652 [debug] [MainThread]: Parsing macros/adapters/schema.sql
+[0m01:42:07.946326 [debug] [MainThread]: Parsing macros/adapters/relation.sql
+[0m01:42:07.977358 [debug] [MainThread]: Parsing macros/adapters/persist_docs.sql
+[0m01:42:07.986946 [debug] [MainThread]: Parsing macros/adapters/apply_grants.sql
+[0m01:42:08.017005 [debug] [MainThread]: Parsing macros/adapters/metadata.sql
+[0m01:42:08.032349 [debug] [MainThread]: Parsing macros/adapters/freshness.sql
+[0m01:42:08.038635 [debug] [MainThread]: Parsing macros/etc/datetime.sql
+[0m01:42:08.057082 [debug] [MainThread]: Parsing macros/etc/statement.sql
+[0m01:42:08.066870 [debug] [MainThread]: Parsing tests/generic/builtin.sql
+[0m01:42:08.637277 [debug] [MainThread]: 1699: static parser successfully parsed src/src_reviews.sql
+[0m01:42:08.667085 [debug] [MainThread]: 1699: static parser successfully parsed src/src_hosts.sql
+[0m01:42:08.672320 [debug] [MainThread]: 1699: static parser successfully parsed src/src_listings.sql
+[0m01:42:08.731539 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282265eb0>]}
+[0m01:42:08.741392 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282bc8f70>]}
+[0m01:42:08.742008 [info ] [MainThread]: Found 3 models, 0 tests, 0 snapshots, 0 analyses, 267 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics
+[0m01:42:08.742608 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7282adb9d0>]}
+[0m01:42:08.744871 [info ] [MainThread]: 
+[0m01:42:08.745855 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m01:42:08.747560 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb"
+[0m01:42:08.781192 [debug] [ThreadPool]: Using snowflake connection "list_airbnb"
+[0m01:42:08.781613 [debug] [ThreadPool]: On list_airbnb: /* {"app": "dbt", "dbt_version": "1.2.2", "profile_name": "my_dbt_hero", "target_name": "dev", "connection_name": "list_airbnb"} */
+show terse schemas in database airbnb
+    limit 10000
+[0m01:42:08.781916 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m01:42:11.044642 [debug] [ThreadPool]: SQL status: SUCCESS 3 in 2.26 seconds
+[0m01:42:11.048004 [debug] [ThreadPool]: On list_airbnb: Close
+[0m01:42:11.389638 [debug] [ThreadPool]: Acquiring new snowflake connection "create_airbnb_dev"
+[0m01:42:11.391208 [debug] [ThreadPool]: Acquiring new snowflake connection "create_airbnb_dev"
+[0m01:42:11.392485 [debug] [ThreadPool]: Creating schema "_ReferenceKey(database='airbnb', schema='dev', identifier=None)"
+[0m01:42:11.403408 [debug] [ThreadPool]: Using snowflake connection "create_airbnb_dev"
+[0m01:42:11.403812 [debug] [ThreadPool]: On create_airbnb_dev: /* {"app": "dbt", "dbt_version": "1.2.2", "profile_name": "my_dbt_hero", "target_name": "dev", "connection_name": "create_airbnb_dev"} */
+create schema if not exists airbnb.dev
+[0m01:42:11.404115 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m01:42:12.504629 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.1 seconds
+[0m01:42:12.508628 [debug] [ThreadPool]: On create_airbnb_dev: Close
+[0m01:42:12.863967 [debug] [ThreadPool]: Acquiring new snowflake connection "list_airbnb_dev"
+[0m01:42:12.885152 [debug] [ThreadPool]: Using snowflake connection "list_airbnb_dev"
+[0m01:42:12.885552 [debug] [ThreadPool]: On list_airbnb_dev: /* {"app": "dbt", "dbt_version": "1.2.2", "profile_name": "my_dbt_hero", "target_name": "dev", "connection_name": "list_airbnb_dev"} */
+show terse objects in airbnb.dev
+[0m01:42:12.885846 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m01:42:13.759526 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.87 seconds
+[0m01:42:13.765398 [debug] [ThreadPool]: On list_airbnb_dev: Close
+[0m01:42:14.135809 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7281226490>]}
+[0m01:42:14.138310 [info ] [MainThread]: Concurrency: 2 threads (target='dev')
+[0m01:42:14.139933 [info ] [MainThread]: 
+[0m01:42:14.164875 [debug] [Thread-1  ]: Began running node model.my_dbt_hero.src_hosts
+[0m01:42:14.166010 [debug] [Thread-2  ]: Began running node model.my_dbt_hero.src_listings
+[0m01:42:14.167506 [info ] [Thread-1  ]: 1 of 3 START view model dev.src_hosts .......................................... [RUN]
+[0m01:42:14.169477 [info ] [Thread-2  ]: 2 of 3 START view model dev.src_listings ....................................... [RUN]
+[0m01:42:14.172783 [debug] [Thread-1  ]: Acquiring new snowflake connection "model.my_dbt_hero.src_hosts"
+[0m01:42:14.174698 [debug] [Thread-1  ]: Began compiling node model.my_dbt_hero.src_hosts
+[0m01:42:14.175907 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.my_dbt_hero.src_listings"
+[0m01:42:14.176591 [debug] [Thread-1  ]: Compiling model.my_dbt_hero.src_hosts
+[0m01:42:14.177275 [debug] [Thread-2  ]: Began compiling node model.my_dbt_hero.src_listings
+[0m01:42:14.182027 [debug] [Thread-1  ]: Writing injected SQL for node "model.my_dbt_hero.src_hosts"
+[0m01:42:14.182781 [debug] [Thread-2  ]: Compiling model.my_dbt_hero.src_listings
+[0m01:42:14.187823 [debug] [Thread-2  ]: Writing injected SQL for node "model.my_dbt_hero.src_listings"
+[0m01:42:14.189051 [debug] [Thread-2  ]: finished collecting timing info
+[0m01:42:14.189762 [debug] [Thread-2  ]: Began executing node model.my_dbt_hero.src_listings
+[0m01:42:14.190426 [debug] [Thread-1  ]: finished collecting timing info
+[0m01:42:14.201172 [debug] [Thread-1  ]: Began executing node model.my_dbt_hero.src_hosts
+[0m01:42:14.360389 [debug] [Thread-1  ]: Writing runtime SQL for node "model.my_dbt_hero.src_hosts"
+[0m01:42:14.361739 [debug] [Thread-2  ]: Writing runtime SQL for node "model.my_dbt_hero.src_listings"
+[0m01:42:14.363845 [debug] [Thread-1  ]: Using snowflake connection "model.my_dbt_hero.src_hosts"
+[0m01:42:14.364214 [debug] [Thread-1  ]: On model.my_dbt_hero.src_hosts: /* {"app": "dbt", "dbt_version": "1.2.2", "profile_name": "my_dbt_hero", "target_name": "dev", "node_id": "model.my_dbt_hero.src_hosts"} */
+create or replace  view airbnb.dev.src_hosts
+  
+   as (
+    WITH raw_hosts AS (
+	SELECT
+		*
+	FROM
+		AIRBNB.RAW.RAW_HOSTS
+)
+SELECT
+	id AS host_id,
+	NAME AS host_name,
+	is_superhost,
+	created_at,
+	updated_at
+FROM
+	raw_hosts
+  );
+[0m01:42:14.365422 [debug] [Thread-2  ]: Using snowflake connection "model.my_dbt_hero.src_listings"
+[0m01:42:14.365790 [debug] [Thread-1  ]: Opening a new connection, currently in state closed
+[0m01:42:14.366185 [debug] [Thread-2  ]: On model.my_dbt_hero.src_listings: /* {"app": "dbt", "dbt_version": "1.2.2", "profile_name": "my_dbt_hero", "target_name": "dev", "node_id": "model.my_dbt_hero.src_listings"} */
+create or replace  view airbnb.dev.src_listings
+  
+   as (
+    WITH raw_listings AS (
+	SELECT
+		*
+	FROM
+		AIRBNB.RAW.RAW_LISTINGS
+)
+SELECT
+	id AS listing_id,
+	name AS listing_name,
+	listing_url,
+	room_type,
+	minimum_nights,
+	host_id,
+	price AS price_str,
+	created_at,
+	updated_at
+FROM
+	raw_listings
+  );
+[0m01:42:14.368176 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m01:42:15.811664 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 1.44 seconds
+[0m01:42:15.851800 [debug] [Thread-1  ]: SQL status: SUCCESS 1 in 1.49 seconds
+[0m01:42:15.856333 [debug] [Thread-2  ]: finished collecting timing info
+[0m01:42:15.861674 [debug] [Thread-1  ]: finished collecting timing info
+[0m01:42:15.862329 [debug] [Thread-2  ]: On model.my_dbt_hero.src_listings: Close
+[0m01:42:15.862941 [debug] [Thread-1  ]: On model.my_dbt_hero.src_hosts: Close
+[0m01:42:16.319577 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f72822653d0>]}
+[0m01:42:16.321563 [info ] [Thread-2  ]: 2 of 3 OK created view model dev.src_listings .................................. [[32mSUCCESS 1[0m in 2.14s]
+[0m01:42:16.324082 [debug] [Thread-2  ]: Finished running node model.my_dbt_hero.src_listings
+[0m01:42:16.325030 [debug] [Thread-2  ]: Began running node model.my_dbt_hero.src_reviews
+[0m01:42:16.325473 [info ] [Thread-2  ]: 3 of 3 START view model dev.src_reviews ........................................ [RUN]
+[0m01:42:16.326600 [debug] [Thread-2  ]: Acquiring new snowflake connection "model.my_dbt_hero.src_reviews"
+[0m01:42:16.326997 [debug] [Thread-2  ]: Began compiling node model.my_dbt_hero.src_reviews
+[0m01:42:16.327320 [debug] [Thread-2  ]: Compiling model.my_dbt_hero.src_reviews
+[0m01:42:16.333517 [debug] [Thread-2  ]: Writing injected SQL for node "model.my_dbt_hero.src_reviews"
+[0m01:42:16.335815 [debug] [Thread-1  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7280d2af40>]}
+[0m01:42:16.337420 [info ] [Thread-1  ]: 1 of 3 OK created view model dev.src_hosts ..................................... [[32mSUCCESS 1[0m in 2.16s]
+[0m01:42:16.338589 [debug] [Thread-1  ]: Finished running node model.my_dbt_hero.src_hosts
+[0m01:42:16.339523 [debug] [Thread-2  ]: finished collecting timing info
+[0m01:42:16.339948 [debug] [Thread-2  ]: Began executing node model.my_dbt_hero.src_reviews
+[0m01:42:16.346843 [debug] [Thread-2  ]: Writing runtime SQL for node "model.my_dbt_hero.src_reviews"
+[0m01:42:16.348347 [debug] [Thread-2  ]: Using snowflake connection "model.my_dbt_hero.src_reviews"
+[0m01:42:16.348756 [debug] [Thread-2  ]: On model.my_dbt_hero.src_reviews: /* {"app": "dbt", "dbt_version": "1.2.2", "profile_name": "my_dbt_hero", "target_name": "dev", "node_id": "model.my_dbt_hero.src_reviews"} */
+create or replace  view airbnb.dev.src_reviews
+  
+   as (
+    WITH raw_reviews AS (
+	SELECT
+		*
+	FROM
+		AIRBNB.RAW.RAW_REVIEWS
+)
+SELECT
+	listing_id,
+	date AS review_date,
+	reviewer_name,
+	comments AS review_text,
+	sentiment AS review_sentiment
+FROM
+	raw_reviews
+  );
+[0m01:42:16.349106 [debug] [Thread-2  ]: Opening a new connection, currently in state closed
+[0m01:42:17.510766 [debug] [Thread-2  ]: SQL status: SUCCESS 1 in 1.16 seconds
+[0m01:42:17.518767 [debug] [Thread-2  ]: finished collecting timing info
+[0m01:42:17.519204 [debug] [Thread-2  ]: On model.my_dbt_hero.src_reviews: Close
+[0m01:42:17.866209 [debug] [Thread-2  ]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '34823990-3655-474e-8e81-a72e35bca668', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7280d53a60>]}
+[0m01:42:17.867962 [info ] [Thread-2  ]: 3 of 3 OK created view model dev.src_reviews ................................... [[32mSUCCESS 1[0m in 1.54s]
+[0m01:42:17.870227 [debug] [Thread-2  ]: Finished running node model.my_dbt_hero.src_reviews
+[0m01:42:17.873947 [debug] [MainThread]: Acquiring new snowflake connection "master"
+[0m01:42:17.875706 [info ] [MainThread]: 
+[0m01:42:17.877286 [info ] [MainThread]: Finished running 3 view models in 0 hours 0 minutes and 9.13 seconds (9.13s).
+[0m01:42:17.878795 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m01:42:17.879556 [debug] [MainThread]: Connection 'model.my_dbt_hero.src_reviews' was properly closed.
+[0m01:42:17.880299 [debug] [MainThread]: Connection 'model.my_dbt_hero.src_hosts' was properly closed.
+[0m01:42:17.896566 [info ] [MainThread]: 
+[0m01:42:17.897771 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m01:42:17.898663 [info ] [MainThread]: 
+[0m01:42:17.899389 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m01:42:17.900205 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7280d3de50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7280d3d280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7280d517c0>]}
+[0m01:42:17.900736 [debug] [MainThread]: Flushing usage events
