@@ -1,0 +1,27 @@
+
+
+============================== 2022-10-14 04:05:54.570029 | 89cdf3b7-6b74-41ba-9574-8938a2be5eaa ==============================
+[0m04:05:54.570047 [info ] [MainThread]: Running with dbt=1.2.2
+[0m04:05:54.571066 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': '/home/rhavel/.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m04:05:54.571396 [debug] [MainThread]: Tracking: tracking
+[0m04:05:54.576580 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f545172f6d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f545172f880>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f545172f850>]}
+[0m04:06:02.019099 [debug] [MainThread]: Starter project path: /home/rhavel/miniconda3/lib/python3.9/site-packages/dbt/include/starter_project
+[0m04:07:09.972992 [info ] [MainThread]: Profile my_dbt_hero written to /home/rhavel/.dbt/profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m04:07:09.974477 [info ] [MainThread]: 
+Your new dbt project "my_dbt_hero" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m04:07:09.975337 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f54517861c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f5451786e50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f54517863a0>]}
+[0m04:07:09.975917 [debug] [MainThread]: Flushing usage events
