@@ -7,6 +7,7 @@ img-26
 img-27
 
 Feita em dois lugares:
+
 + EM arquivos `.yml`, você até pode aproveitar o `schema.yml`
 + EM arquivos markdown, e depois sâo referenciados em um aarquivo `.yml`
 
@@ -72,10 +73,10 @@ models:
         tests:
           - not_null
 
-	  - name: review_sentiment
-		 tests:
-		   - accepted_values:
-		       values: ['positive', 'neutral', 'negative']
+   - name: review_sentiment
+   tests:
+     - accepted_values:
+         values: ['positive', 'neutral', 'negative']
 ```
 
 Você gera com
@@ -122,7 +123,6 @@ Podeos configurar o arquivo inicial que abre o serve do docs pelo arquiv `overvi
 
 `models/overview.md`
 
-
 ```
 {% docs __overview__ %}
 # Airbnb pipeline
@@ -149,6 +149,3 @@ chama por
 ```
 ![input schema](assets/input_schema.png)
 ```
-
-
-

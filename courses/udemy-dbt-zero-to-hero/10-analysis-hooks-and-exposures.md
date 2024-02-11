@@ -12,21 +12,21 @@ Colocamos na pasta `analysis/`. Podemo usar as macro jinja e ao compilar, na pas
 
 ```
 WITH mart_fullmoon_reviews AS (
-	SELECT * FROM ref('mart_fullmoon_reviews')
+ SELECT * FROM ref('mart_fullmoon_reviews')
 )
 
 SELECT
-	is_full_moon,
-	review_sentiment,
-	COUNT(*) as reviews
+ is_full_moon,
+ review_sentiment,
+ COUNT(*) as reviews
 FROM
-	mart_fullmoon_reviews
+ mart_fullmoon_reviews
 GROUP BY
-	is_full_moon,
-	review_sentiment
+ is_full_moon,
+ review_sentiment
 ORDER BY
-	is_full_moon,
-	review_sentiment
+ is_full_moon,
+ review_sentiment
 ```
 
 Execute com :
@@ -49,13 +49,13 @@ Para fazer isos vamos ter que configurar algumas cosias no snowflake
 USE ROLE ACCOUNTADMIN;
 CREATE ROLE IF NOT EXISTS REPORTER;
 CREATE USER IF NOT EXISTS PRESET
-	PASSWORD='presetPassword123'
-	LOGIN_NAME='preset'
-	MUST_CHANGE_PASSWORD=FALSE
-	DEFAULT_WAREHOUSE='COMPUTE_WH'
-	DEFAULT_ROLE='REPORTER'
-	DEFAULT_NAMESPACE='AIRBNB.DEV'
-	COMMENT='Preset user for creating reports';
+ PASSWORD='presetPassword123'
+ LOGIN_NAME='preset'
+ MUST_CHANGE_PASSWORD=FALSE
+ DEFAULT_WAREHOUSE='COMPUTE_WH'
+ DEFAULT_ROLE='REPORTER'
+ DEFAULT_NAMESPACE='AIRBNB.DEV'
+ COMMENT='Preset user for creating reports';
 
 GRANT ROLE REPORTER TO USER PRESET;
 GRANT ROLE REPORTER TO ROLE ACCOUNTADMIN;
@@ -75,15 +75,11 @@ Coloque ese trecho no `dbt_project.yml` no final.
     - "GRANT SELECT ON {{ this }} TO ROLE REPORTER"
 ```
 
-
-
 ## Exposure
 
 Exposue serve para referenciar a algo externo do dbt.
 
 Vamos começar criando o arquivo `dashboard.yml` no `models/`
-
-
 
 `models/dashboard.yml`
 
@@ -109,6 +105,3 @@ exposures:
 **ESSE EXPOSURE SERVE PARA ADICIONAR UMA SEÇÂO DE DASHBOARD NA NOSSA DOCUMENTAÇÂO, LINKADO COM O LINK DO PRESET E COLOCANDO MAIS COISAS**
 
 img-30
-
-
-

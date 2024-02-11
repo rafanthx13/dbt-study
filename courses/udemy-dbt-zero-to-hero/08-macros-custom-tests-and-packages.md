@@ -14,17 +14,18 @@ Existe a macro special chamada `test` que permite criar seu próprio generic tes
 
 ```
 {% macro no_nulls_in_columns(model) %}
-	SELECT * FROM {{ model }} WHERE
-		{% for col in adapter.get_columns_in_relation(model) -%}
-			{{ col.column }} IS NULL OR
-		{% endfor %}
-	FALSE
+ SELECT * FROM {{ model }} WHERE
+  {% for col in adapter.get_columns_in_relation(model) -%}
+   {{ col.column }} IS NULL OR
+  {% endfor %}
+ FALSE
 {% endmacro %}
 ```
 
 O jinja permtite criiar coisa como variaveis, IF e for. Busque masi na documentação.
 
 **O que está fazendo**
+
 + Vai verificar várias colunas com OR e no final da expressâo terá o FALSE que é nulo no 'OR'.
 + Lembrnaod que  jinja é compilado depois
 
@@ -42,14 +43,16 @@ usamos a macro `test` para dizer que é onosso generic test
 `macros/positive_value.sql`
 
 ```
+
 {% test positive_value(model, column_name) %}
 SELECT
-*	
+* 
 FROM
-	{{ model }}
+ {{ model }}
 WHERE
-	{{ column_name}} < 1
+ {{ column_name}} < 1
 {% endtest %}
+
 ```
 
 Para usála, colocamos em  `schema.yml`
@@ -59,7 +62,9 @@ Para usála, colocamos em  `schema.yml`
       tests:
         - positive_value
 ```
+
  deps de dependencies
+
 ## Usando pacotes do dbt
 
 Site com os packages: hub.getdbt.com
@@ -74,25 +79,24 @@ Vamos usar algumas macros no arquivo de `fact`
 
 ```sql
 {{
-	config(
-		materialized = 'incremental',
-		on_schema_change='fail'
-	)
+ config(
+  materialized = 'incremental',
+  on_schema_change='fail'
+ )
 }}
 
 WITH src_reviews AS (
-	SELECT * FROM {{ ref('src_reviews') }}
+ SELECT * FROM {{ ref('src_reviews') }}
 )
 
 SELECT
-	{{ dbt_utils.surrogate_key(['listing_id', 'review_date', 'reviewer_name', 'review_text']) }} AS review_id,
-	*
+ {{ dbt_utils.surrogate_key(['listing_id', 'review_date', 'reviewer_name', 'review_text']) }} AS review_id,
+ *
 FROM 
-	src_reviews
+ src_reviews
 WHERE 
-	review_text is not null
+ review_text is not null
 {% if is_incremental() %}
-	AND review_date > (select max(review_date) from {{ this }})
+ AND review_date > (select max(review_date) from {{ this }})
 {% endif %}
 ```
-

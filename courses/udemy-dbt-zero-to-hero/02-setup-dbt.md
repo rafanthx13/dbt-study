@@ -1,21 +1,18 @@
 # Setup DBT
 
-+ Link do git: https://github.com/nordquant/complete-dbt-bootcamp-zero-to-hero
-  - Esse Repositório está salvo em `/git-repo`
++ Link do git: <https://github.com/nordquant/complete-dbt-bootcamp-zero-to-hero>
 
-## 1 - Inscrever no Snowflake
+## 1 - Como se Inscrever no Snowflake
 
 + Precisa de apenas um email
 + Depois escolha qual das principais clouds usar, mas você não precisa ter conta nelas, é só escolher qualquer uma mesmo
 + vai mandar um email de ativação, acesse e ative a sua conta
-+ Ao ativar a conta (por usuário e senha) você vai para uma página. **SALVE O LINK DELA** 
++ Ao ativar a conta (por usuário e senha) você vai para uma página. **SALVE O LINK DELA**
   + Por exemplo:
-    + https://mo5fas193.us-east467.gcp.snowflakecomputing.com/console
+    + <https://mo5fas193.us-east467.gcp.snowflakecomputing.com/console>
   + Salve
     + `mo5fas193.us-east467.gcp`
 + Esse código que informa a zona da cloud será usada mais a frente
-
-
 
 ## Começando no Snowflake
 
@@ -37,13 +34,13 @@ GRANT ROLE TRANSFORM TO ROLE ACCOUNTADMIN;
 
 -- Create the `dbt` user and assign to role
 CREATE USER IF NOT EXISTS dbt
-	PASSWORD='dbtPassword123'
-	LOGIN_NAME='dbt'
-	MUST_CHANGE_PASSWORD=FALSE
-	DEFAULT_WAREHOUSE='COMPUTE_WH'
-	DEFAULT_ROLE='transform'
-	DEFAULT_NAMESPACE='AIRBNB.RAW'
-	COMMENT='DBT user used for data transformation';
+ PASSWORD='dbtPassword123'
+ LOGIN_NAME='dbt'
+ MUST_CHANGE_PASSWORD=FALSE
+ DEFAULT_WAREHOUSE='COMPUTE_WH'
+ DEFAULT_ROLE='transform'
+ DEFAULT_NAMESPACE='AIRBNB.RAW'
+ COMMENT='DBT user used for data transformation';
 GRANT ROLE transform to USER dbt;
 
 -- Create our database and schemas
@@ -67,53 +64,51 @@ GRANT ALL ON FUTURE TABLES IN SCHEMA AIRBNB.RAW to ROLE transform;
 USE WAREHOUSE COMPUTE_WH;
 USE DATABASE airbnb;
 USE SCHEMA RAW;
-
-
+s
 -- Create our three tables and import the data from S3
 CREATE OR REPLACE TABLE raw_listings
-	(id integer,
-	listing_url string,
-	name string,
-	room_type string,
-	minimum_nights integer,
-	host_id integer,
-	price string,
-	created_at datetime,
-	updated_at datetime);
+ (id integer,
+ listing_url string,
+ name string,
+ room_type string,
+ minimum_nights integer,
+ host_id integer,
+ price string,
+ created_at datetime,
+ updated_at datetime);
 
 COPY INTO raw_listings (id,
-	listing_url,
-	name,
-	room_type,
-	minimum_nights,
-	host_id,
-	price,
-	created_at,
-	updated_at)
-	from 's3://dbtlearn/listings.csv'
-		FILE_FORMAT = (type = 'CSV' skip_header = 1
-		FIELD_OPTIONALLY_ENCLOSED_BY = '"');
-		
-
+ listing_url,
+ name,
+ room_type,
+ minimum_nights,
+ host_id,
+ price,
+ created_at,
+ updated_at)
+ from 's3://dbtlearn/listings.csv'
+  FILE_FORMAT = (type = 'CSV' skip_header = 1
+  FIELD_OPTIONALLY_ENCLOSED_BY = '"');
+  
 CREATE OR REPLACE TABLE raw_reviews
-	(listing_id integer,
-	date datetime,
-	reviewer_name string,
-	comments string,
-	sentiment string);
+ (listing_id integer,
+ date datetime,
+ reviewer_name string,
+ comments string,
+ sentiment string);
 
 COPY INTO raw_reviews (listing_id, date, reviewer_name, comments, sentiment)
-	from 's3://dbtlearn/reviews.csv'
-	FILE_FORMAT = (type = 'CSV' skip_header = 1
-	FIELD_OPTIONALLY_ENCLOSED_BY = '"');
-	
+ from 's3://dbtlearn/reviews.csv'
+ FILE_FORMAT = (type = 'CSV' skip_header = 1
+ FIELD_OPTIONALLY_ENCLOSED_BY = '"');
+ 
 
 CREATE OR REPLACE TABLE raw_hosts
-	(id integer,
-	name string,
-	is_superhost string,
-	created_at datetime,
-	updated_at datetime);
+ (id integer,
+ name string,
+ is_superhost string,
+ created_at datetime,
+ updated_at datetime);
 
 COPY INTO raw_hosts (id, name, is_superhost, created_at, updated_at)
    from 's3://dbtlearn/hosts.csv'
@@ -124,43 +119,44 @@ COPY INTO raw_hosts (id, name, is_superhost, created_at, updated_at)
 ## 3 - Iniciando Repo local do dobt
 
 + 1 - Carregue o pip
-  + ```sh
-  pip install dbt-snowflake
-    ```
-    
-  + Após isso você deverá ter o comando `dbt` no seu `shell`
+  
+```sh
+pip install dbt-snowflake
+```
+
++ Após isso você deverá ter o comando `dbt` no seu `shell`
 
 + 2 - Criando repo
 
-  + ```
-    dbt init
-    ```
+```
+dbt init
+```
 
-  + Vai criar um repo local (sem git, é algo como o `git clone` vai criar uma pasta com o nome que você der)
++ Vai criar um repo local (sem git, é algo como o `git clone` vai criar uma pasta com o nome que você der)
 
 + 3 - Configurações a serem colocadas no `dbt init`
 
-  + ```
-    account (https://<this_value>.snowflakecomputing.com): xxxx
-    user (dev username): dbt
-    password: dbtPassword123
-    role (dev role): transform
-    warehouse (warehouse name): COMPUTE_WH
-    database (default database that dbt will build objects in): airbnb
-    schema (default schema that dbt will build objects in): dev
-    threads (1 or more) [1]: 2
-    ```
+```sh
+account (https://<this_value>.snowflakecomputing.com): xxxx
+user (dev username): dbt
+password: dbtPassword123
+role (dev role): transform
+warehouse (warehouse name): COMPUTE_WH
+database (default database that dbt will build objects in): airbnb
+schema (default schema that dbt will build objects in): dev
+threads (1 or more) [1]: 2
+```
 
 + 4 - Testando se conecta com o Snowflake real
 
-  + ```sh
+```sh
     dbt debug
-    ```
+```
 
-  + Se der certo vai aparecer algo como:
++ Se der certo vai aparecer algo como:
   
-  + ```
-    Configuration:
+```sh
+Configuration:
   profiles.yml file [OK found and valid]
   dbt_project.yml file [OK found and valid]
     Required dependencies:
@@ -174,78 +170,74 @@ COPY INTO raw_hosts (id, name, is_superhost, created_at, updated_at)
     role: transform
     client_session_keep_alive: False
     Connection test: [OK connection ok]
-    ```
+ ```
     
-   + OBS: onde fica essa configuração que você testa?
++ OBS: onde fica essa configuração que você testa?
   
-      + O `dbt` salva dados assim no arquivo `home/.dbt/profiles.yml`
++ O `dbt` salva dados assim no arquivo `home/.dbt/profiles.yml`
   
-         + É um arquivo com os repos dbt criados, tem como exemplo:
+ + É um arquivo com os repos dbt criados, tem como exemplo:
   
-         + ```
-           b_ahero:
-             outputs:
-               dev:
-                 account: to4u72943.us-east4.gcp
-                 database: airbnb
-                 password: dbtPassword123
-                 role: transform
-                 schema: dev
-                 threads: 2
-                 type: snowflake
-                 user: dbt
-                 warehouse: COMPUTE_WH
-             target: dev
-           dbt_hero:
-             outputs:
-               dev:
-                 account: uo72r4196.us-east4.gcp
-                 database: airbnb
-                 password: Crowthunder_7
-                 role: transform
-                 schema: dev
-                 threads: 2
-                 type: snowflake
-                 user: dbt
-                 warehouse: COMPUTE_WH
-             target: dev
-           ```
+````sh
+b_ahero:
+  outputs:
+    dev:
+      account: to4u72943.us-east4.gcp
+      database: airbnb
+      password: dbtPassword123
+      role: transform
+      schema: dev
+      threads: 2
+      type: snowflake
+      user: dbt
+      warehouse: COMPUTE_WH
+  target: dev
+dbt_hero:
+  outputs:
+    dev:
+      account: uo72r4196.us-east4.gcp
+      database: airbnb
+      password: Crowthunder_7
+      role: transform
+      schema: dev
+      threads: 2
+      type: snowflake
+      user: dbt
+      warehouse: COMPUTE_WH
+  target: dev
+````
   
-        + Quando você faz uma conexão com dbt, ele vai ler os dados de configuração aqui e não nenhum no arquivo do repo, para manter seguro os dados sigilosos
-  
-      + De preferência é recomendado instalar o dbt em um `virtual-env`, pois a cada novo projeto vai salvar uma nova conexão nesse arquivo
-  
-      + A configuração que deu certo para esse tutorial em 13/10/2022 foi:
-  
-      + ```
-        db_ahero:
-          outputs:
-            dev:
-              account: xxxxxxxxxx
-              database: airbnb
-              password: dbtPassword123
-              role: transform
-              schema: dev
-              threads: 2
-              type: snowflake
-              user: dbt
-              warehouse: COMPUTE_WH
-          target: dev
-        ```
-  
-        
++ Quando você faz uma conexão com dbt, ele vai ler os dados de configuração aqui e não nenhum no arquivo do repo, para manter seguro os dados sigilosos
 
++ De preferência é recomendado instalar o dbt em um `virtual-env`, pois a cada novo projeto vai salvar uma nova conexão nesse arquivo
 
++ A configuração que deu certo para esse tutorial em 13/10/2022 foi:
 
+```sh
+db_ahero:
+  outputs:
+    dev:
+      account: xxxxxxxxxx
+      database: airbnb
+      password: dbtPassword123
+      role: transform
+      schema: dev
+      threads: 2
+      type: snowflake
+      user: dbt
+      warehouse: COMPUTE_WH
+  target: dev
+```
+  
 ## Extensão no VS Code
 
-```
+```sh
 dbt Power user
 ```
 
 ## Estrutura de pastas do projeto do DBT
 
-```
+```sh
 .
 ├── analyses
 ├── dbt_project.yml :: Arquivo de configuraçâo global
@@ -261,7 +253,6 @@ dbt Power user
 ├── seeds
 ├── snapshots
 └── tests
-
 ```
 
 + `dbt_project.yml`
@@ -321,21 +312,19 @@ dbt Power user
                 +materialized: view
           ```
 
-  + **Limpe a pasta models e apague o que tem em `models ` no arquivo principal do projeto**. Deixe como o exemplo abaixo:
+  + **Limpe a pasta models e apague o que tem em `models` no arquivo principal do projeto**. Deixe como o exemplo abaixo:
 
     + ```yml
       models:
         my_dbt_hero:
       ```
 
-      
-
 ## Inserindo dados
 
 O schema do nosso projeto
 
-img-06
+![img-01](imgs/img-06.jpeg)
 
 O que nos vamos construir no projeto: ETL nos sources até termos dados ideais apa um dashboard
 
-img-07
+![img-01](imgs/img-07.jpeg)

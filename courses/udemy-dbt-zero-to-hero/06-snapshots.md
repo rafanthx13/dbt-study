@@ -1,27 +1,27 @@
 # Snapshots
 
-img-20
+![img-01](imgs/img-20.jpeg)
 
 ## O que sâo Snapshots
 
 **Type 2 Slowing CHanging Dimensions**
+
 + A ideia das diemneoes é serm dados que mudem bem pouco, mas mesmo aasim pode aocntecer de muda rmesmo
+
 - Exemplo: Temo um mysql com dados de um usuario e um DW. Acoentece que o usuario resolveu mudar de email, entao vai mudar no mysql (faz um update nas e no DW? precisa ser umupdate? SCD descrever froams de tratar esse caso
+
 + O tipo 2 conssite em por datas, de star e ane, e o dado masi valido será aquele com a data de end como null
 
 NO DBT há duas formas de se fazer isso:
 
-img-21
+![img-01](imgs/img-21.jpeg)
 
-- time
-- cheks
++ time
++ cheks
 
 ## Criando SNapohosts
 
 + 1 - Garanta que em `dbt__project` snaphots esteja apontando para a pasta `snapshots`
-
-
-
 
 `snapshots/scd_raw_listings.sql`
 
@@ -29,13 +29,13 @@ img-21
 {% snapshot scd_raw_listings %}
 
 {{
-	config(
-		target_schema='dev',
-		unique_key='id',
-		strategy='timestamp',
-		updated_at='updated_at',
-		invalidate_hard_deletes=True
-	)
+ config(
+  target_schema='dev',
+  unique_key='id',
+  strategy='timestamp',
+  updated_at='updated_at',
+  invalidate_hard_deletes=True
+ )
 }}
 
 select * FROM {{ source('airbnb', 'listings') }}
@@ -44,8 +44,9 @@ select * FROM {{ source('airbnb', 'listings') }}
 ```
 
 O que está fazenoddo:
+
 + O snaphos consiste em basicamente ser um select
-  - nos vamos vigiar isso `select * FROM {{ source('airbnb', 'listings') }}`
+  + nos vamos vigiar isso `select * FROM {{ source('airbnb', 'listings') }}`
 + A ultima configraçA^o `invalidate_hard_deletes` é opconal
 
 Execute
@@ -55,6 +56,7 @@ dbt snapshot
 ```
 
 O que acontece ao executar:
+
 + vai cirar uma tabela `scd_raw_listing` que terá os dados originais adicioandoas de colunas como `dbt_updated_at`, `dbt_valid_from`, `dbt_valid_to`
 
 Executamos um UPDATE para mudar os dados mais um SELECT para vÊ se está mudado mesmo
@@ -88,16 +90,15 @@ SELECT * FROM AIRBNB.DEV.SCD_RAW_LISTINGS WHERE ID=3176;
 {% snapshot scd_raw_hosts %}
 
 {{
-	config(
-		target_schema='dev',
-		unique_key='id',
-		strategy='timestamp',
-		updated_at='updated_at',
-		invalidate_hard_deletes=True
-	)
+ config(
+  target_schema='dev',
+  unique_key='id',
+  strategy='timestamp',
+  updated_at='updated_at',
+  invalidate_hard_deletes=True
+ )
 }}
 select * FROM {{ source('airbnb', 'hosts') }}
 
 {% endsnapshot %}
 ```
-
